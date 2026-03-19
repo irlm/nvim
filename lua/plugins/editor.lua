@@ -10,30 +10,43 @@ return {
     },
   },
 
-  -- better treesitter parsers for your languages
+  -- treesitter parsers
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
         "bash",
+        "c",
+        "cpp",
+        "css",
+        "dockerfile",
         "go",
+        "gomod",
         "html",
+        "java",
         "javascript",
         "json",
         "lua",
         "markdown",
         "markdown_inline",
         "python",
+        "query",
+        "regex",
         "rust",
+        "scala",
+        "sql",
         "toml",
+        "tsx",
         "typescript",
         "vim",
+        "vimdoc",
+        "xml",
         "yaml",
       },
     },
   },
 
-  -- mason: auto-install linters/formatters
+  -- mason: auto-install formatters/linters
   {
     "mason-org/mason.nvim",
     opts = {
@@ -41,6 +54,9 @@ return {
         "stylua",
         "shellcheck",
         "shfmt",
+        "prettier",
+        "black",
+        "isort",
       },
     },
   },
