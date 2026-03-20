@@ -39,4 +39,15 @@ return {
         or { "stylua", "shellcheck", "shfmt", "prettier", "pyright" },
     },
   },
+
+  -- formatters: jq for JSON (works on servers), prettier when available
+  {
+    "stevearc/conform.nvim",
+    opts = {
+      formatters_by_ft = {
+        json = { "prettier", "jq", stop_after_first = true },
+        jsonc = { "prettier", "jq", stop_after_first = true },
+      },
+    },
+  },
 }
