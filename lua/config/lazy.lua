@@ -18,6 +18,16 @@ require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+    -- language extras (between lazyvim.plugins and user plugins)
+    { import = "lazyvim.plugins.extras.lang.rust",       enabled = not vim.uv.fs_stat(vim.fn.stdpath("config") .. "/.server") },
+    { import = "lazyvim.plugins.extras.lang.clangd",     enabled = not vim.uv.fs_stat(vim.fn.stdpath("config") .. "/.server") },
+    { import = "lazyvim.plugins.extras.lang.java",       enabled = not vim.uv.fs_stat(vim.fn.stdpath("config") .. "/.server") },
+    { import = "lazyvim.plugins.extras.lang.typescript", enabled = not vim.uv.fs_stat(vim.fn.stdpath("config") .. "/.server") },
+    { import = "lazyvim.plugins.extras.lang.json",       enabled = not vim.uv.fs_stat(vim.fn.stdpath("config") .. "/.server") },
+    { import = "lazyvim.plugins.extras.lang.python",     enabled = not vim.uv.fs_stat(vim.fn.stdpath("config") .. "/.server") },
+    { import = "lazyvim.plugins.extras.lang.go",         enabled = not vim.uv.fs_stat(vim.fn.stdpath("config") .. "/.server") },
+    { import = "lazyvim.plugins.extras.lang.scala",      enabled = not vim.uv.fs_stat(vim.fn.stdpath("config") .. "/.server") },
+    { import = "lazyvim.plugins.extras.lang.sql",        enabled = not vim.uv.fs_stat(vim.fn.stdpath("config") .. "/.server") },
     -- import/override with your plugins
     { import = "plugins" },
   },
