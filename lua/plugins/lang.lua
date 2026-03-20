@@ -1,3 +1,8 @@
+-- Skip language extras on servers (detected by ~/.config/nvim/.server marker)
+if vim.uv.fs_stat(vim.fn.stdpath("config") .. "/.server") then
+  return {}
+end
+
 return {
   -- LazyVim language extras — each adds LSP, treesitter, formatters, linters
   { import = "lazyvim.plugins.extras.lang.rust" },

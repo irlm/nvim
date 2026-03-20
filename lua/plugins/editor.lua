@@ -14,49 +14,29 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
-      ensure_installed = {
-        "bash",
-        "c",
-        "cpp",
-        "css",
-        "dockerfile",
-        "go",
-        "gomod",
-        "html",
-        "java",
-        "javascript",
-        "json",
-        "lua",
-        "markdown",
-        "markdown_inline",
-        "python",
-        "query",
-        "regex",
-        "rust",
-        "scala",
-        "sql",
-        "toml",
-        "tsx",
-        "typescript",
-        "vim",
-        "vimdoc",
-        "xml",
-        "yaml",
-      },
+      ensure_installed = vim.uv.fs_stat(vim.fn.stdpath("config") .. "/.server")
+        and {
+          -- Server: minimal parsers for scripts/configs
+          "bash", "json", "lua", "markdown", "python", "vim", "vimdoc", "yaml", "dockerfile",
+        }
+        or {
+          -- Workstation: full language support
+          "bash", "c", "cpp", "css", "dockerfile", "go", "gomod",
+          "html", "java", "javascript", "json", "lua", "markdown",
+          "markdown_inline", "python", "query", "regex", "rust",
+          "scala", "sql", "toml", "tsx", "typescript", "vim",
+          "vimdoc", "xml", "yaml",
+        },
     },
   },
 
-  -- mason: auto-install formatters/linters
+  -- mason: auto-install formatters/linters (skip on servers)
   {
     "mason-org/mason.nvim",
     opts = {
-      ensure_installed = {
-        "stylua",
-        "shellcheck",
-        "shfmt",
-        "prettier",
-        "pyright",
-      },
+      ensure_installed = vim.uv.fs_stat(vim.fn.stdpath("config") .. "/.server")
+        and { "shellcheck", "shfmt" }
+        or { "stylua", "shellcheck", "shfmt", "prettier", "pyright" },
     },
   },
 }
