@@ -49,7 +49,6 @@ return {
           "goimports",
           "google-java-format",
           "ruff",
-          "scalafmt",
           "sql-formatter",
           "taplo",
         },
