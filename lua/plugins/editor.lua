@@ -95,7 +95,7 @@ return {
         lua = { "stylua" },
         python = { "ruff_format" },
         rust = { "rustfmt" },
-        scala = { "lsp" },
+        -- scala: handled by Metals LSP via lsp_format="fallback"
         -- config / data
         sh = { "shfmt" },
         bash = { "shfmt" },
