@@ -62,6 +62,11 @@ return {
       opts.settings = vim.tbl_deep_extend("force", opts.settings or {}, {
         metals = { useGlobalExecutable = true },
       })
+      opts.on_attach = function(client, bufnr)
+        if pcall(require, "dap") then
+          require("metals").setup_dap()
+        end
+      end
       return opts
     end,
   },
