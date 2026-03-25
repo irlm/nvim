@@ -55,6 +55,17 @@ return {
     },
   },
 
+  -- nvim-metals: use system-installed metals (via Coursier) instead of built-in install
+  {
+    "scalameta/nvim-metals",
+    opts = function(_, opts)
+      opts.settings = vim.tbl_deep_extend("force", opts.settings or {}, {
+        metals = { useGlobalExecutable = true },
+      })
+      return opts
+    end,
+  },
+
   -- formatters per language (Mason auto-installs the binaries above)
   {
     "stevearc/conform.nvim",

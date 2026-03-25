@@ -28,6 +28,10 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.go",         enabled = not vim.uv.fs_stat(vim.fn.stdpath("config") .. "/.server") },
     { import = "lazyvim.plugins.extras.lang.scala",      enabled = not vim.uv.fs_stat(vim.fn.stdpath("config") .. "/.server") },
     { import = "lazyvim.plugins.extras.lang.sql",        enabled = not vim.uv.fs_stat(vim.fn.stdpath("config") .. "/.server") },
+    { import = "lazyvim.plugins.extras.lang.docker",     enabled = not vim.uv.fs_stat(vim.fn.stdpath("config") .. "/.server") },
+    { import = "lazyvim.plugins.extras.lang.markdown",   enabled = not vim.uv.fs_stat(vim.fn.stdpath("config") .. "/.server") },
+    { import = "lazyvim.plugins.extras.lang.toml",       enabled = not vim.uv.fs_stat(vim.fn.stdpath("config") .. "/.server") },
+    { import = "lazyvim.plugins.extras.lang.yaml",       enabled = not vim.uv.fs_stat(vim.fn.stdpath("config") .. "/.server") },
     -- import/override with your plugins
     { import = "plugins" },
   },
