@@ -36,17 +36,57 @@ return {
     opts = {
       ensure_installed = vim.uv.fs_stat(vim.fn.stdpath("config") .. "/.server")
         and { "shellcheck", "shfmt" }
-        or { "stylua", "shellcheck", "shfmt", "prettier", "pyright" },
+        or {
+          -- linters
+          "shellcheck",
+          "pyright",
+          -- formatters
+          "shfmt",
+          "stylua",
+          "prettier",
+          "clang-format",
+          "gofumpt",
+          "goimports",
+          "google-java-format",
+          "ruff",
+          "scalafmt",
+          "sql-formatter",
+          "taplo",
+        },
     },
   },
 
-  -- formatters: jq for JSON (works on servers), prettier when available
+  -- formatters per language (Mason auto-installs the binaries above)
   {
     "stevearc/conform.nvim",
     opts = {
       formatters_by_ft = {
+        -- web / markup
+        css = { "prettier" },
+        html = { "prettier" },
+        javascript = { "prettier" },
+        javascriptreact = { "prettier" },
         json = { "prettier", "jq", stop_after_first = true },
         jsonc = { "prettier", "jq", stop_after_first = true },
+        markdown = { "prettier" },
+        typescript = { "prettier" },
+        typescriptreact = { "prettier" },
+        yaml = { "prettier" },
+        -- languages
+        c = { "clang-format" },
+        cpp = { "clang-format" },
+        go = { "goimports", "gofumpt" },
+        java = { "google-java-format" },
+        lua = { "stylua" },
+        python = { "ruff_format" },
+        rust = { "rustfmt" },
+        scala = { "scalafmt" },
+        -- config / data
+        sh = { "shfmt" },
+        bash = { "shfmt" },
+        sql = { "sql-formatter" },
+        toml = { "taplo" },
+        xml = { "prettier" },
       },
     },
   },
