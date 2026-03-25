@@ -95,7 +95,7 @@ return {
         lua = { "stylua" },
         python = { "ruff_format" },
         rust = { "rustfmt" },
-        scala = { "scalafmt" },
+        scala = { "lsp" },
         -- config / data
         sh = { "shfmt" },
         bash = { "shfmt" },
